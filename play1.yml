@@ -1,0 +1,24 @@
+---
+- hosts: all
+  ignore_errors: yes
+  become: yes
+  tasks: 
+    - name: create user
+      user:
+        name: Oumar
+        comment: Oumar Kenneh
+     
+    - name: create directory
+      file:
+       path: /tmp/devop-ans
+       owner: Oumar
+       state: directory
+       mode: "0777"
+
+    - name: create file
+      file:
+       path: /tmp/devop-class
+       owner: Oumar
+       state: touch       
+       mode: "0600"
+     
